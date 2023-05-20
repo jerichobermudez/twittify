@@ -1,6 +1,9 @@
 import type { AppProps } from 'next/app'
 import '@/styles/globals.css';
 import Head from 'next/head';
+import Layout from '@/components/Layout';
+import LoginModal from '@/components/models/LoginModal';
+import RegisterModal from '@/components/models/RegisterModal';
 
 export default function App({
   Component,
@@ -16,7 +19,11 @@ export default function App({
         <meta name="description" content="Twitter Clone using next js" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Component {...pageProps} />
+      <RegisterModal />
+      <LoginModal />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   )
 }
