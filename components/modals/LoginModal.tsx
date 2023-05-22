@@ -3,6 +3,7 @@ import useRegisterModal from "@/hooks/useRegisterModal";
 import { useCallback, useState } from "react";
 import Input from "../Input";
 import Modal from "../Modal";
+import { signIn } from "next-auth/react";
 
 const LoginModal = () => {
   const loginModal = useLoginModal();
@@ -24,7 +25,10 @@ const LoginModal = () => {
     try {
       setIsLoading(true);
       
-      // Login logic
+      await signIn('credentials', {
+        email,
+        password
+      });
 
       loginModal.onClose();
     } catch (error: any) {
@@ -54,7 +58,7 @@ const LoginModal = () => {
 
   const footerContent = (
     <div className="text-neutral-400 text-center mt-4">
-      <p>First time using Twitter?&nbsp;
+      <p>First time using Twittify?&nbsp;
         <span 
           onClick={onToggle} 
           className="

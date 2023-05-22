@@ -3,6 +3,7 @@ import '@/styles/globals.css';
 import Head from 'next/head';
 import Layout from '@/components/Layout';
 import LoginModal from '@/components/modals/LoginModal';
+import EditModal from '@/components/modals/EditModal';
 import RegisterModal from '@/components/modals/RegisterModal';
 import { Toaster } from 'react-hot-toast';
 import { SessionProvider } from 'next-auth/react';
@@ -25,6 +26,7 @@ export default function App({
         <Toaster />
         <RegisterModal />
         <LoginModal />
+        <EditModal />
         <Layout>
           <Component {...pageProps} />
         </Layout>
